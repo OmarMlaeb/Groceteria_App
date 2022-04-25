@@ -4,6 +4,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="408dp"
+        android:layout_height="289dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/login_header" />
+
+    <EditText
+        android:id="@+id/mobile_number"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_gravity="top|center_horizontal"
+        android:ems="8"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textSize="25sp"
+        android:hint="Mobile Number"
+        android:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_gravity="top|center_horizontal"
+        android:backgroundTint="#000000"
+        android:ems="8"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.588"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="150dp"
+        android:layout_height="43dp"
+        android:text="Show Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.653" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="210dp"
+        android:layout_height="60dp"
+        android:background="@drawable/button_outline"
+        android:onClick="login"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.815"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:onClick="goSignup"
+        android:text="Not a member yet? Sign up here."
+        android:textColor="#9E9E9E"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.907" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
