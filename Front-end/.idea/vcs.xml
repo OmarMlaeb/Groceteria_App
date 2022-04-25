@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/CSC498G_Currency_Converter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CSC498G_Currency_Converter/Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CSC498G_Groceteria_App" vcs="Git" />
+  </component>
+</project>
