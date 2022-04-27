@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
             Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, IntroActivity.class);
             startActivity(intent);
         }
     }
@@ -143,6 +143,4 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
     }
-
-
 }

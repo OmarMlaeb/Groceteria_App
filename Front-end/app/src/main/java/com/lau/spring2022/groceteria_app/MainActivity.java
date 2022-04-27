@@ -1,7 +1,6 @@
 package com.lau.spring2022.groceteria_app;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
