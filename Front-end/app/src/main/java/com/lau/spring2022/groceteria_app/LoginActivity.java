@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -57,7 +59,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
+        String mobile_number_ = mobile_number.getText().toString();
+        String password_ = password.getText().toString();
 
+        if(TextUtils.isEmpty(mobile_number_) || TextUtils.isEmpty(password_)){
+            Toast.makeText(LoginActivity.this, "All Fields Required!", Toast.LENGTH_LONG).show();
+        } else {
+            //loginAccount(mobile_number_, password_);
+        }
     }
 
     // when the TextView (Not a member yet? Sign up here.) is clicked, the signup page will appear
@@ -65,4 +74,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
     }
+
+
 }

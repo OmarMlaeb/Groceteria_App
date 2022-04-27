@@ -7,14 +7,14 @@ $password = $_GET["password"]; // list that contains all the last names sent fro
 
 $query = $mysqli->prepare("SELECT * FROM signup_accounts WHERE mobile_number = '$mobile_number' AND password = '$password'"); // to select values from the table "signup_accounts" and checks if user has an account already while signing in to the app 
 
+$query->bind_param("is", $mobile_number, $password); // binds the parameters to the SQL query and tells the database what the parameters are
+
 $query->execute(); // the database executes the statement after binding the values to the parameters
 
 $array = $query->get_result(); // retrieves a result set from the prepared statement as an object
 
-$response = [];
-
 while($account = $array->fetch_assoc()){ // for every single row in the table fetch for the result and reserve it in "account" object  
-    $response[] = $account;
+    $response = array("Response"=>"Login Success!");
 }
 
 $json_response = json_encode($response); // encode the string to JSON format
