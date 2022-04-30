@@ -16,7 +16,7 @@ import com.lau.spring2022.groceteria_app.R;
 
 import java.util.ArrayList;
 
-import Domains.CategoryDomain;
+import com.lau.spring2022.groceteria_app.Activities.Activities.Domains.CategoryDomain;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 

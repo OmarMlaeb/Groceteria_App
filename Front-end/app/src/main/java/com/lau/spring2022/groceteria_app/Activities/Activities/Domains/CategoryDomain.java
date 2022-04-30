@@ -1,4 +1,4 @@
-package Domains;
+package com.lau.spring2022.groceteria_app.Activities.Activities.Domains;
 
 // category class having attributes that define a category the name and the image
 

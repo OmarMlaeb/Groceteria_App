@@ -172,9 +172,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="379dp"
+            android:layout_width="411dp"
             android:layout_height="140dp"
             android:layout_marginTop="16dp"
+            android:clipToPadding="true"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -193,9 +196,12 @@
             app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="379dp"
-            android:layout_height="177dp"
+            android:id="@+id/recyclerView2"
+            android:layout_width="411dp"
+            android:layout_height="250dp"
             android:layout_marginTop="16dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -207,7 +213,7 @@
 
   <androidx.coordinatorlayout.widget.CoordinatorLayout
       android:layout_width="match_parent"
-      android:layout_height="70dp"
+      android:layout_height="55dp"
       android:background="@drawable/app_bar_outline"
       app:layout_constraintBottom_toBottomOf="@id/scrollView"
       app:layout_constraintEnd_toEndOf="parent"
@@ -228,11 +234,11 @@
 
           <ImageView
               android:id="@+id/image1"
-              android:layout_width="35dp"
-              android:layout_height="35dp"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
               android:layout_weight="1"
               android:layout_marginTop="5dp"
-              android:layout_marginLeft="30dp"
+              android:layout_marginLeft="35dp"
               android:src="@drawable/home_icon" />
 
           <TextView
@@ -242,7 +248,7 @@
               android:text="Home"
               android:textAlignment="center"
               android:textColor="@color/black"
-              android:textSize="20sp" />
+              android:textSize="18sp" />
 
 
         </LinearLayout>
@@ -256,8 +262,8 @@
 
           <ImageView
               android:id="@+id/image2"
-              android:layout_width="35dp"
-              android:layout_height="35dp"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
               android:layout_weight="1"
               android:layout_marginTop="5dp"
               android:layout_marginLeft="35dp"
@@ -271,7 +277,7 @@
               android:layout_marginLeft="1dp"
               android:textAlignment="center"
               android:textColor="@color/black"
-              android:textSize="20sp" />
+              android:textSize="18sp" />
 
 
         </LinearLayout>
@@ -285,11 +291,11 @@
 
           <ImageView
               android:id="@+id/image3"
-              android:layout_width="35dp"
-              android:layout_height="35dp"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
               android:layout_weight="1"
               android:layout_marginTop="5dp"
-              android:layout_marginLeft="40dp"
+              android:layout_marginLeft="45dp"
               android:src="@drawable/shopping_cart"/>
 
           <TextView
@@ -300,7 +306,7 @@
               android:layout_marginLeft="20dp"
               android:textAlignment="center"
               android:textColor="@color/black"
-              android:textSize="20sp" />
+              android:textSize="18sp" />
 
 
         </LinearLayout>
@@ -314,11 +320,11 @@
 
           <ImageView
               android:id="@+id/image4"
-              android:layout_width="35dp"
-              android:layout_height="35dp"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
               android:layout_weight="1"
               android:layout_marginTop="5dp"
-              android:layout_marginLeft="30dp"
+              android:layout_marginLeft="35dp"
               android:src="@drawable/profile_icon"/>
 
           <TextView
@@ -328,7 +334,7 @@
               android:text="Profile"
               android:textAlignment="center"
               android:textColor="@color/black"
-              android:textSize="20sp" />
+              android:textSize="18sp" />
 
         </LinearLayout>
 
