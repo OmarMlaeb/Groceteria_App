@@ -1,4 +1,4 @@
-package com.lau.spring2022.groceteria_app;
+package com.lau.spring2022.groceteria_app.Activities.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.lau.spring2022.groceteria_app.R;
 
 import org.json.JSONObject;
 

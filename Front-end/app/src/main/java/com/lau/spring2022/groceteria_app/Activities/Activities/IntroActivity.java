@@ -1,4 +1,4 @@
-package com.lau.spring2022.groceteria_app;
+package com.lau.spring2022.groceteria_app.Activities.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.lau.spring2022.groceteria_app.R;
 
 public class IntroActivity extends AppCompatActivity {
 

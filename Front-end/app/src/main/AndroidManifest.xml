@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Groceteria_App" >
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.Activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".Activities.Activities.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.Activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".IntroActivity"
+            android:name=".Activities.Activities.IntroActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
