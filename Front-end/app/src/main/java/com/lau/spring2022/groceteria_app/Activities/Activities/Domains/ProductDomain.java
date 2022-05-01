@@ -1,6 +1,8 @@
 package com.lau.spring2022.groceteria_app.Activities.Activities.Domains;
 
-public class ProductDomain {
+import java.io.Serializable;
+
+public class ProductDomain implements Serializable {
 
     private String name;
     private String pic;
@@ -29,6 +31,10 @@ public class ProductDomain {
 
     public String getPic() {
         return pic;
+    }
+
+    public void setNumberInCart(int numberInCart) {
+        this.numberInCart = numberInCart;
     }
 
     public String getDescription() {

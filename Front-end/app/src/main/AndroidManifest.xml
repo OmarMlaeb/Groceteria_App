@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lau.spring2022.groceteria_app" >
+    package="com.lau.spring2022.groceteria_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,7 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Groceteria_App" >
+        android:theme="@style/Theme.Groceteria_App">
+        <activity
+            android:name=".Activities.Activities.ShowDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.Activities.MainActivity"
             android:exported="false" />
@@ -22,7 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".Activities.Activities.IntroActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
