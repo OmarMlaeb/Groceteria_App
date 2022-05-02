@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.lau.spring2022.groceteria_app.Activities.Activities.Domains.ProductDomain;
+import com.lau.spring2022.groceteria_app.Activities.Activities.Interface.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
 
@@ -42,4 +43,28 @@ public class ManagementCart {
         return helperDB.getListObject("CartList");
     }
 
+    public void plusNumberProduct(ArrayList<ProductDomain> listProduct, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+        listProduct.get(position).setNumberInCart(listProduct.get(position).getNumberInCart() + 1);
+        helperDB.putListObject("CartList", listProduct);
+        changeNumberItemsListener.changed();
+    }
+
+    public void minusNumberProduct(ArrayList<ProductDomain> listProduct, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+        if (listProduct.get(position).getNumberInCart() == 1) {
+            listProduct.remove(position);
+        } else {
+            listProduct.get(position).setNumberInCart(listProduct.get(position).getNumberInCart() - 1);
+        }
+        helperDB.putListObject("CartList", listProduct);
+        changeNumberItemsListener.changed();
+    }
+
+    public Double getTotalPrice() {
+        ArrayList<ProductDomain> listProduct = getListCart();
+        double price = 0;
+        for (int i = 0; i < listProduct.size(); i++) {
+            price += (listProduct.get(i).getPrice() * listProduct.get(i).getNumberInCart());
+        }
+        return price;
+    }
 }

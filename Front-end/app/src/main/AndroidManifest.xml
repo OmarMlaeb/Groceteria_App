@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Groceteria_App">
         <activity
+            android:name=".Activities.Activities.CartListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Activities.ShowDetailsActivity"
             android:exported="false" />
         <activity

@@ -2,6 +2,7 @@ package com.lau.spring2022.groceteria_app.Activities.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -44,11 +45,6 @@ public class ShowDetailsActivity extends AppCompatActivity {
 
         managementCart = new ManagementCart(this);
 
-        initView();
-        getBundle();
-    }
-
-    public void initView(){
         addToCartBtn = findViewById(R.id.addtoCartBtn);
         titleTxt = findViewById(R.id.titleTxt);
         priceTxt = findViewById(R.id.priceTxt);
@@ -57,6 +53,8 @@ public class ShowDetailsActivity extends AppCompatActivity {
         prodImg = findViewById(R.id.prod_img);
         minusBtn = findViewById(R.id.minusBtn);
         plusBtn = findViewById(R.id.addBtn);
+
+        getBundle();
     }
 
     public void getBundle(){
@@ -93,6 +91,8 @@ public class ShowDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 object.setNumberInCart(numberOrder);
                 managementCart.insertProduct(object);
+
+                startActivity(new Intent(ShowDetailsActivity.this, MainActivity.class));
             }
         });
     }

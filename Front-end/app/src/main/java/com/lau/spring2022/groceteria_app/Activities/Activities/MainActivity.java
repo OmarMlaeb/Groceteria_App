@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import com.lau.spring2022.groceteria_app.Activities.Activities.Adapters.CategoryAdapter;
 import com.lau.spring2022.groceteria_app.Activities.Activities.Adapters.PopularAdapter;
@@ -37,6 +40,27 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView_Category();
         recyclerView_Popular();
+
+        buttonNavigation();
+    }
+
+    public void buttonNavigation(){
+        LinearLayout homeTab = findViewById(R.id.homeTab);
+        LinearLayout cartTab = findViewById(R.id.cartTab);
+
+        homeTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+            }
+        });
+
+        cartTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CartListActivity.class));
+            }
+        });
     }
 
     private void recyclerView_Category() {
