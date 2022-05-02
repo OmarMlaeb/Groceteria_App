@@ -91,8 +91,6 @@ public class ShowDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 object.setNumberInCart(numberOrder);
                 managementCart.insertProduct(object);
-
-                startActivity(new Intent(ShowDetailsActivity.this, MainActivity.class));
             }
         });
     }

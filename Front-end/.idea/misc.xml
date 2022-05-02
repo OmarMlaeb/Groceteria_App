@@ -10,16 +10,23 @@
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/drawable/category_background.xml" value="0.175" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/drawable/search_background.xml" value="0.186" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/drawable/viewholder_popular.xml" value="0.1805" />
+        <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_beverages.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_cart_list.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_categories.xml" value="0.25" />
+        <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_electronics.xml" value="0.25" />
+        <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_fresh_food.xml" value="0.25" />
+        <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_frozen_food.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_intro.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_show_details.xml" value="0.22" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_signup.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/activity_vegetables_fruits.xml" value="0.22" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/viewholder_cart.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/viewholder_category.xml" value="0.25" />
+        <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/viewholder_category2.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/viewholder_popular.xml" value="0.25" />
+        <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/Groceteria_App/Front-end/app/src/main/res/layout/viewholder_product.xml" value="0.25" />
         <entry key="..\:/Users/omarm/OneDrive/Desktop/Projects/app/src/main/res/layout/activity_main.xml" value="0.25" />
       </map>
     </option>

@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Groceteria_App">
         <activity
+            android:name=".Activities.Activities.Vegetables_FruitsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.ElectronicsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.BeveragesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.FrozenFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.FreshFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.CategoriesActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Activities.CartListActivity"
             android:exported="false" />
         <activity

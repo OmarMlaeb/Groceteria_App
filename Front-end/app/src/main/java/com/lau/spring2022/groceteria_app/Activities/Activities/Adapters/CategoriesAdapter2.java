@@ -14,35 +14,35 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.lau.spring2022.groceteria_app.Activities.Activities.BeveragesActivity;
+import com.lau.spring2022.groceteria_app.Activities.Activities.Domains.CategoryDomain;
 import com.lau.spring2022.groceteria_app.Activities.Activities.FreshFoodActivity;
 import com.lau.spring2022.groceteria_app.Activities.Activities.FrozenFoodActivity;
 import com.lau.spring2022.groceteria_app.Activities.Activities.ElectronicsActivity;
+import com.lau.spring2022.groceteria_app.Activities.Activities.Vegetables_FruitsActivity;
 import com.lau.spring2022.groceteria_app.R;
 
 import java.util.ArrayList;
 
-import com.lau.spring2022.groceteria_app.Activities.Activities.Domains.CategoryDomain;
+public class CategoriesAdapter2 extends RecyclerView.Adapter<CategoriesAdapter2.ViewHolder> {
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+    ArrayList<CategoryDomain> categoryDomains; // array list of the the class category
 
-    ArrayList<CategoryDomain>categoryDomains; // array list of the the class category
-
-    public CategoryAdapter(ArrayList<CategoryDomain> categoryDomains) { // constructor
+    public CategoriesAdapter2(ArrayList<CategoryDomain> categoryDomains) { // constructor
         this.categoryDomains = categoryDomains;
     }
 
     @NonNull
     @Override
     // describes an item view and metadata about its place within the RecyclerView
-    public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CategoriesAdapter2.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category, parent,false);
-        return new ViewHolder(inflate);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category2, parent,false);
+        return new CategoriesAdapter2.ViewHolder(inflate);
     }
 
     @Override
     // to update the RecyclerView of the category in the main xml
-    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoriesAdapter2.ViewHolder holder, int position) {
         holder.categoryName.setText(categoryDomains.get(position).getCategory_name());
         String picURL = "";
         switch (position){
@@ -86,6 +86,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(holder.itemView.getContext(), ElectronicsActivity.class);
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
+                break;
+            }
+            case 4:{
+                picURL = "vegetables_icon";
+                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.category_background));
+                holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(holder.itemView.getContext(), Vegetables_FruitsActivity.class);
                         holder.itemView.getContext().startActivity(intent);
                     }
                 });

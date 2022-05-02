@@ -64,12 +64,20 @@ public class CartListActivity extends AppCompatActivity {
 
     public void buttonNavigation(){
         LinearLayout homeTab = findViewById(R.id.homeTab);
+        LinearLayout categoriesTab = findViewById(R.id.categoriesTab);
         LinearLayout cartTab = findViewById(R.id.cartTab);
 
         homeTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CartListActivity.this, MainActivity.class));
+            }
+        });
+
+        categoriesTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CartListActivity.this, CategoriesActivity.class));
             }
         });
 
