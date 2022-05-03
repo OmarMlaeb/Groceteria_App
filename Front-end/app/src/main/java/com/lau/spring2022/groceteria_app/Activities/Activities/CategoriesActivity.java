@@ -41,6 +41,7 @@ public class CategoriesActivity extends AppCompatActivity {
         LinearLayout homeTab = findViewById(R.id.homeTab);
         LinearLayout categoriesTab = findViewById(R.id.categoriesTab);
         LinearLayout cartTab = findViewById(R.id.cartTab);
+        LinearLayout profileTab = findViewById(R.id.profileTab);
 
         homeTab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +61,13 @@ public class CategoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CategoriesActivity.this, CartListActivity.class));
+            }
+        });
+
+        profileTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CategoriesActivity.this, ProfileActivity.class));
             }
         });
     }

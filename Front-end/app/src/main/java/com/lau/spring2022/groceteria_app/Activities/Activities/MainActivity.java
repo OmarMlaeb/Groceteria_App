@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout homeTab = findViewById(R.id.homeTab);
         LinearLayout categoriesTab = findViewById(R.id.categoriesTab);
         LinearLayout cartTab = findViewById(R.id.cartTab);
+        LinearLayout profileTab = findViewById(R.id.profileTab);
 
         homeTab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, CartListActivity.class));
+            }
+        });
+
+        profileTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
             }
         });
     }

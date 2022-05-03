@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Groceteria_App">
         <activity
+            android:name=".Activities.Activities.AddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Activities.Vegetables_FruitsActivity"
             android:exported="false" />
         <activity
