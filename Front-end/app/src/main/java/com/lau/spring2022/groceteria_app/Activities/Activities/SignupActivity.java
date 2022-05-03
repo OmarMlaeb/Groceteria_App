@@ -102,6 +102,15 @@ public class SignupActivity extends AppCompatActivity {
                 JSONObject json = new JSONObject(s); // object of JSONObject and assigned to json
                 response = json.getString("Response"); // convert the string to a json object
 
+                if(response.equals("Created Account Successfully!")){
+                    Toast.makeText(SignupActivity.this, "Created Account Successfully!", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else if(response.equals("Email address is invalid")){
+                    Toast.makeText(SignupActivity.this, "Email address is invalid", Toast.LENGTH_LONG).show();
+                }
+
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -136,11 +145,6 @@ public class SignupActivity extends AppCompatActivity {
 
             DownloadTask task = new DownloadTask();
             task.execute(url);
-
-            Toast.makeText(SignupActivity.this, "Created Account Successfully!", Toast.LENGTH_LONG).show();
-
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
         }
     }
 }

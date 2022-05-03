@@ -111,6 +111,16 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject json = new JSONObject(s); // object of JSONObject and assigned to json
                 response = json.getString("Response"); // convert the string to a json object
 
+                if(response.equals("Login Success!")){
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+
+                    Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_LONG).show();
+                } else if(response.equals("Login Error!")){
+
+                    Toast.makeText(LoginActivity.this, "Wrong Mobile Number or Password", Toast.LENGTH_LONG).show();
+                }
+
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -132,17 +142,12 @@ public class LoginActivity extends AppCompatActivity {
 
             DownloadTask task = new DownloadTask();
             task.execute(url);
-
-            Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_LONG).show();
-
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
         }
     }
 
     // when the TextView (Not a member yet? Sign up here.) is clicked, the signup page will appear
     public void goSignup(View view) {
-        Intent intent = new Intent(this, SignupActivity.class);
+        Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
     }
 }
