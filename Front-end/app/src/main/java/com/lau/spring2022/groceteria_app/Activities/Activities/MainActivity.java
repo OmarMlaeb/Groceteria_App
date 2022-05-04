@@ -5,20 +5,29 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lau.spring2022.groceteria_app.Activities.Activities.Adapters.CategoryAdapter;
 import com.lau.spring2022.groceteria_app.Activities.Activities.Adapters.PopularAdapter;
 import com.lau.spring2022.groceteria_app.Activities.Activities.Domains.ProductDomain;
 import com.lau.spring2022.groceteria_app.R;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 import com.lau.spring2022.groceteria_app.Activities.Activities.Domains.CategoryDomain;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter2;
     private RecyclerView recyclerView_CategoryList; // is a ViewGroup that contains the views corresponding to the data
     private RecyclerView recyclerView_PopularList;
+
+    TextView user;
+
+    String mobile_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +51,71 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        user = findViewById(R.id.textView3);
+
+        Intent intent = getIntent(); // get the mobile number logged in to the app from the login activity
+        mobile_num = intent.getStringExtra("mobile_num");
+
+        // url of the local host of the api to send data to the database
+        String url = "http://192.168.56.1/Groceteria_Server/get_user.php?mobile_number=" + mobile_num; // send it to the api
+        // concatenated the values to the api url to send the data to it
+
+        DownloadTask task = new DownloadTask();
+        task.execute(url);
+
         recyclerView_Category();
         recyclerView_Popular();
 
         buttonNavigation();
+    }
+
+    /* any function that will run in parallel with the application, as the app wont be loading or waiting for the execution of that function
+       and to send the data to the database, and to retrieve the conversion calculation from the api and display it on the screen */
+    public class DownloadTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... urls) { // pre execute
+            String result = "";
+            URL url; // manages all the information present in the URL string
+            HttpURLConnection http; // used to make a single request
+
+            // to catch any error that may be executed when we run the code
+            try{
+                url = new URL(urls[0]); // sending the url
+                http = (HttpURLConnection) url.openConnection(); // opening connection between the app and url (api)
+
+                InputStream in = http.getInputStream();
+                InputStreamReader reader = new InputStreamReader(in); // to read the output of the api
+                int data = reader.read(); // cursor to read the output of the api
+
+                while( data != -1){ // didn't reach the end of the file
+                    char current = (char) data; // take a character every time
+                    result += current; // append the character read to the string result
+                    data = reader.read(); // not to run to an infinite loop (move the cursor one character)
+
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+                return null;
+            }
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) { // when the api is executed
+            super.onPostExecute(s);
+
+            try{ // get the first name of the user and display it on the screen
+                JSONObject json = new JSONObject(s); // object of JSONObject and assigned to json
+                String response = json.getString("Response"); // convert the string to a json object
+
+                user.setText("Hello " + response); // display user first name
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public void buttonNavigation(){
@@ -74,7 +148,9 @@ public class MainActivity extends AppCompatActivity {
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                Intent intent2 = new Intent(MainActivity.this, ProfileActivity.class);
+                intent2.putExtra("mobile_num", mobile_num);
+                startActivity(intent2);
             }
         });
     }

@@ -59,8 +59,6 @@ public class SignupActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    String response;
-
     /* any function that will run in parallel with the application, as the app wont be loading or waiting for the execution of that function
        and to send the data to the database, and to retrieve the conversion calculation from the api and display it on the screen */
     public class DownloadTask extends AsyncTask<String, Void, String> {
@@ -100,12 +98,12 @@ public class SignupActivity extends AppCompatActivity {
 
             try{
                 JSONObject json = new JSONObject(s); // object of JSONObject and assigned to json
-                response = json.getString("Response"); // convert the string to a json object
+                String response = json.getString("Response"); // convert the string to a json object
 
                 if(response.equals("Created Account Successfully!")){
                     Toast.makeText(SignupActivity.this, "Created Account Successfully!", Toast.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                     startActivity(intent);
                 } else if(response.equals("Email address is invalid")){
                     Toast.makeText(SignupActivity.this, "Email address is invalid", Toast.LENGTH_LONG).show();

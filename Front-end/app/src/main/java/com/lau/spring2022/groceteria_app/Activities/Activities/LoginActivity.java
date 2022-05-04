@@ -68,8 +68,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    String response;
-
     /* any function that will run in parallel with the application, as the app wont be loading or waiting for the execution of that function
        and to send the data to the database, and to retrieve the conversion calculation from the api and display it on the screen */
     public class DownloadTask extends AsyncTask<String, Void, String> {
@@ -109,10 +107,14 @@ public class LoginActivity extends AppCompatActivity {
 
             try{
                 JSONObject json = new JSONObject(s); // object of JSONObject and assigned to json
-                response = json.getString("Response"); // convert the string to a json object
+                String response = json.getString("Response"); // convert the string to a json object
+
+                String mobile_num = mobile_number.getText().toString();
 
                 if(response.equals("Login Success!")){
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("mobile_num", mobile_num);
                     startActivity(intent);
 
                     Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_LONG).show();
@@ -135,6 +137,7 @@ public class LoginActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(mobile_number_) || TextUtils.isEmpty(password_)){
             Toast.makeText(LoginActivity.this, "All Fields Required!", Toast.LENGTH_LONG).show();
         } else {
+
             // url of the local host of the api to send data to the database
             String url = "http://192.168.56.1/Groceteria_Server/logins.php?mobile_number=" + pars_mobile_number
                     + "&password=" + password_;
@@ -143,6 +146,7 @@ public class LoginActivity extends AppCompatActivity {
             DownloadTask task = new DownloadTask();
             task.execute(url);
         }
+
     }
 
     // when the TextView (Not a member yet? Sign up here.) is clicked, the signup page will appear
