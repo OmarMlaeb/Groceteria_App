@@ -21,17 +21,21 @@ import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
+    // creating a variable for array list, managementCart and ChangeNumberItemsListener
+
     ArrayList<ProductDomain> productDomains; // array list of the items added in the class cart
 
     private ManagementCart managementCart;
     private ChangeNumberItemsListener changeNumberItemsListener;
 
+    // creating a constructor for our variables
     public CartAdapter(ArrayList<ProductDomain> productDomains, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
         this.productDomains = productDomains;
         this.managementCart = new ManagementCart(context);
         this.changeNumberItemsListener = changeNumberItemsListener;
     }
 
+    // inflate our layout
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,6 +45,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        // setting data to our views of the recycler view
         holder.title.setText(productDomains.get(position).getName());
         holder.priceEachItem.setText(String.valueOf(productDomains.get(position).getPrice()));
         holder.totalEachItem.setText(String.valueOf(Math.round((productDomains.get(position).getNumberInCart() * productDomains.get(position).getPrice()) * 100) / 100));
@@ -50,6 +56,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         Glide.with(holder.itemView.getContext()).load(drawableResourceId).into(holder.pic);
 
+        // when the add button is clicked the number of items will be incremented
         holder.plusItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +70,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             }
         });
 
+        // when the minus button is clicked the number of items will be decremented
         holder.minusItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +85,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         });
     }
 
+    // returning the size of array list
     @Override
     public int getItemCount() {
         return productDomains.size();
@@ -84,6 +93,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        // creating variables for our views
         TextView title;
         TextView priceEachItem;
         ImageView pic;
@@ -95,6 +105,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            // initializing our views with their ids
             title = itemView.findViewById(R.id.titleTxt);
             priceEachItem = itemView.findViewById(R.id.priceEachItem);
             pic = itemView.findViewById(R.id.imageCart);

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class BeveragesActivity extends AppCompatActivity {
 
+    // variable for our adapter and for our ui components.
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView_BeveragesList;
 

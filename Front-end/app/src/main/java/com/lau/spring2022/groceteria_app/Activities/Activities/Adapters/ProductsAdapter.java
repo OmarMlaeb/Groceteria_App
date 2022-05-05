@@ -30,7 +30,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     @Override
     // describes an item view and metadata about its place within the RecyclerView
     public ProductsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+        // inflate our layout
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_product, parent,false);
         return new ProductsAdapter.ViewHolder(inflate);
     }
@@ -38,6 +38,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     @Override
     // to update the RecyclerView of the category in the main xml
     public void onBindViewHolder(@NonNull ProductsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        // setting data to our views of the recycler view and a clicker listener when the add button of add product is clicked to go to the show details activity
         holder.productName.setText(productDomains.get(position).getName());
         holder.price.setText(String.valueOf(productDomains.get(position).getPrice()));
 
@@ -55,6 +57,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         });
     }
 
+    // returning the size of array list
     @Override
     public int getItemCount() {
         return productDomains.size();
@@ -62,6 +65,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
     // ViewHolder contents with the item at the given position and also sets up some private fields to be used by RecyclerView
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        // creating variables for our views
         TextView productName, price;
         ImageView productPic;
         TextView addButton;
@@ -69,6 +74,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            // initializing our views with their ids
             productName = itemView.findViewById(R.id.titleTxt);
             productPic = itemView.findViewById(R.id.imageProduct);
             price = itemView.findViewById(R.id.priceEachItem);
