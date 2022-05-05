@@ -28,6 +28,8 @@ public class ProfileActivity extends AppCompatActivity {
     TextView email;
     TextView yearofbirth;
 
+    String mobile_num;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent(); // get the mobile number logged in to the app from the login activity
-        String mobile_num = intent.getStringExtra("mobile_num");
+        mobile_num = intent.getStringExtra("mobile_num");
 
         // url of the local host of the api to send data to the database
         String url = "http://192.168.56.1/Groceteria_Server/profiles.php?mobile_number=" + mobile_num; // send it to the api
@@ -132,28 +134,36 @@ public class ProfileActivity extends AppCompatActivity {
         homeTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                Intent intent =  new Intent(ProfileActivity.this, MainActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         categoriesTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, CategoriesActivity.class));
+                Intent intent = new Intent(ProfileActivity.this, CategoriesActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         cartTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, CartListActivity.class));
+                Intent intent = new Intent(ProfileActivity.this, CartListActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
+                Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
     }

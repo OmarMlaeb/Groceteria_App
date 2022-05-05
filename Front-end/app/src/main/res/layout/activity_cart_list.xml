@@ -157,7 +157,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <TextView
+            <Button
                 android:id="@+id/checkoutBtn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -166,6 +166,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="75dp"
                 android:background="@drawable/button_outline"
+                android:onClick="checkout"
                 android:gravity="center"
                 android:text="CHECKOUT"
                 android:textAlignment="center"
@@ -186,6 +187,22 @@
         android:textStyle="bold"
         android:visibility="gone"
         android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/checkoutTxt"
+        android:layout_width="300dp"
+        android:layout_height="270dp"
+        android:text="Your order will be delivered soon to the address of this account"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="@+id/layout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

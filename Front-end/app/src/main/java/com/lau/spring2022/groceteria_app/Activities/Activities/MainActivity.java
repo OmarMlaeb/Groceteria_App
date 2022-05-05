@@ -127,30 +127,36 @@ public class MainActivity extends AppCompatActivity {
         homeTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         categoriesTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, CategoriesActivity.class));
+                Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         cartTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, CartListActivity.class));
+                Intent intent = new Intent(MainActivity.this, CartListActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this, ProfileActivity.class);
-                intent2.putExtra("mobile_num", mobile_num);
-                startActivity(intent2);
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
     }
@@ -182,11 +188,11 @@ public class MainActivity extends AppCompatActivity {
 
         // array list of the the category class to connect the attributes of the class to the adapter of the the recycler view
         ArrayList<ProductDomain> product = new ArrayList<>();
-        product.add(new ProductDomain("Rice", "rice_img", "Rice (per kg)", 20.0, 1));
-        product.add(new ProductDomain("Fish", "fish_img", "Fish (per kg)", 20.0, 1));
-        product.add(new ProductDomain("Eggs", "eggs_img", "Eggs (each 15)", 20.0, 1));
-        product.add(new ProductDomain("Meat", "meat_img", "Meat (per kg)", 20.0, 1));
-        product.add(new ProductDomain("Chicken", "chicken_img", "Chicken (per kg)", 20.0, 1));
+        product.add(new ProductDomain("Rice", "rice_img", "Rice (per kg)", 29.0, 1));
+        product.add(new ProductDomain("Fish", "fish_img", "Fish (per kg)", 25.0, 1));
+        product.add(new ProductDomain("Eggs", "eggs_img", "Eggs (each 15)", 15.0, 1));
+        product.add(new ProductDomain("Meat", "meat_img", "Meat (per kg)", 30.0, 1));
+        product.add(new ProductDomain("Chicken", "chicken_img", "Chicken (per kg)", 19.0, 1));
 
         adapter2 = new PopularAdapter(product);
         recyclerView_PopularList.setAdapter(adapter2);

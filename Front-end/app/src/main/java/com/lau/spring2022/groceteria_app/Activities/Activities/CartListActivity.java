@@ -29,9 +29,12 @@ public class CartListActivity extends AppCompatActivity {
     TextView totalTxt;
     TextView checkoutBtn;
     TextView emptyTxt;
+    TextView checkoutTxt;
 
     private double tax;
     private ScrollView scrollView;
+
+    String mobile_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +55,12 @@ public class CartListActivity extends AppCompatActivity {
         totalTxt = findViewById(R.id.totalTxt);
         checkoutBtn = findViewById(R.id.checkoutBtn);
         emptyTxt = findViewById(R.id.emptyTxt);
+        checkoutTxt = findViewById(R.id.checkoutTxt);
         scrollView = findViewById(R.id.scrollView2);
         recyclerViewCart = findViewById(R.id.recyclerViewCart);
+
+        Intent intent = getIntent(); // get the mobile number logged in to the app from the login activity
+        mobile_num = intent.getStringExtra("mobile_num");
 
         initList();
 
@@ -71,28 +78,36 @@ public class CartListActivity extends AppCompatActivity {
         homeTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CartListActivity.this, MainActivity.class));
+                Intent intent = new Intent(CartListActivity.this, MainActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         categoriesTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CartListActivity.this, CategoriesActivity.class));
+                Intent intent = new Intent(CartListActivity.this, CategoriesActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         cartTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CartListActivity.this, CartListActivity.class));
+                Intent intent = new Intent (CartListActivity.this, CartListActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CartListActivity.this, ProfileActivity.class));
+                Intent intent = new Intent(CartListActivity.this, ProfileActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
     }
@@ -134,5 +149,10 @@ public class CartListActivity extends AppCompatActivity {
         taxTxt.setText("$ " + tax);
         deliveryTxt.setText("$ " + delivery);
         totalTxt.setText("$ " + total);
+    }
+
+    public void checkout(View view){
+        checkoutTxt.setVisibility(View.VISIBLE);
+        scrollView.setVisibility(View.GONE);
     }
 }

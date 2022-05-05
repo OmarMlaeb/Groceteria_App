@@ -22,6 +22,8 @@ public class CategoriesActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter; // to provide a binding from an app-specific data set to views that are displayed within a RecyclerView
     private RecyclerView recyclerView_CategoryList; // is a ViewGroup that contains the views corresponding to the data
 
+    String mobile_num;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,9 @@ public class CategoriesActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_categories);
+
+        Intent intent = getIntent(); // get the mobile number logged in to the app from the login activity
+        mobile_num = intent.getStringExtra("mobile_num");
 
         buttonNavigation();
         recyclerView_Category();
@@ -46,28 +51,36 @@ public class CategoriesActivity extends AppCompatActivity {
         homeTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CategoriesActivity.this, MainActivity.class));
+                Intent intent = new Intent(CategoriesActivity.this, MainActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         categoriesTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CategoriesActivity.this, CategoriesActivity.class));
+                Intent intent = new Intent(CategoriesActivity.this, CategoriesActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         cartTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CategoriesActivity.this, CartListActivity.class));
+                Intent intent = new Intent(CategoriesActivity.this, CartListActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
 
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CategoriesActivity.this, ProfileActivity.class));
+                Intent intent = new Intent(CategoriesActivity.this, ProfileActivity.class);
+                intent.putExtra("mobile_num", mobile_num);
+                startActivity(intent);
             }
         });
     }
