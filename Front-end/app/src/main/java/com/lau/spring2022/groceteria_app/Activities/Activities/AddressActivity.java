@@ -30,6 +30,8 @@ public class AddressActivity extends AppCompatActivity {
     EditText receiver_nameTxt;
     EditText receiver_mobile_numberTxt;
 
+    String mobile_num;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,9 @@ public class AddressActivity extends AppCompatActivity {
         instructionsTxt = (EditText)  findViewById(R.id.instructionsTxt);
         receiver_nameTxt = (EditText)  findViewById(R.id.receiver_nameTxt);
         receiver_mobile_numberTxt = (EditText) findViewById(R.id.receiver_mobile_numberTxt);
+
+        Intent intent = getIntent(); // get the mobile number logged in to the app from the login activity
+        mobile_num = intent.getStringExtra("mobile_num");
 
     }
 
@@ -95,6 +100,7 @@ public class AddressActivity extends AppCompatActivity {
                     Toast.makeText(AddressActivity.this, "Added Address Successfully!", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(AddressActivity.this, ProfileActivity.class);
+                    intent.putExtra("mobile_num", mobile_num);
                     startActivity(intent);
                 }
 

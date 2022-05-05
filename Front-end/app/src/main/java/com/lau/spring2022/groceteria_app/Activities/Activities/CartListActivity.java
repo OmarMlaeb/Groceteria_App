@@ -137,7 +137,7 @@ public class CartListActivity extends AppCompatActivity {
 
     private void calculateCart(){
         double percentTax = 0.02;
-        double delivery = 20;
+        double delivery = 10;
 
         tax = Math.round((managementCart.getTotalPrice() * percentTax) * 100) / 100;
 
